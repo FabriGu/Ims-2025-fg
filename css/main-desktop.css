@@ -1,5 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Onest:wght@900&display=swap");
+
+
 body {
-    border: 1px red solid;
+    border: 0px red solid;
 
     width: 100vw;
     height: 100vh;
@@ -16,6 +19,96 @@ body {
 
     color: white !important;
 
+    place-items: center;
+	background: linear-gradient(
+		180deg,
+		rgba(5, 5, 5, 1) 30%,
+		rgba(41, 14, 14, 1) 70%
+	);
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	font-size: clamp(1.56rem, 1vw + 1.31rem, 2.11rem);
+	font-family: "Onest", sans-serif;
+	&::after {
+		display: block;
+		content: "";
+		pointer-events: none;
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		background: transparent url("https://assets.codepen.io/108082/Noise.png") 0 0;
+		background-size: 320px 320px;
+	}
+	@supports (height: 100dvh) {
+		height: 100dvh;
+	}
+}
+
+/* code for effect of the title take from https://freefrontend.com/css-text-effects/ */
+h1 {
+	position: relative;
+    z-index: -1;
+    top: 70px;
+	margin: 0;
+	padding: 0;
+	perspective: 30px;
+	perspective-origin: 50% 0%;
+	span,
+	&::after {
+		color: #fff;
+		font-weight: 800;
+		text-transform: uppercase;
+		letter-spacing: 0;
+		scale: 0.7 1.6;
+		inset-block-start: -0.45em;
+		transform: rotateX(-8deg);
+	}
+	span {
+		position: absolute;
+		z-index: 1;
+	}
+	&::after {
+		display: block;
+		position: relative;
+		content: attr(arial-label);
+		filter: blur(1px) contrast(3);
+		text-shadow: 0px 3px 9px #e46e6e, 0px 8px 12px #9e7639;
+		mix-blend-mode: hard-light;
+	}
+	&::before {
+		content: attr(arial-label);
+		display: block;
+		position: absolute;
+		inset-block-start: 0.6em;
+		filter: blur(0.065em) contrast(5);
+		font-weight: 900;
+		letter-spacing: calc(1em * 0.05);
+		text-shadow: 0px 0.1em 0.13em #b08747, 0px 0.5em 0.16em #5539b7;
+		text-transform: uppercase;
+		color: transparent;
+		background-clip: text;
+		background-size: 95% 100%;
+		background-image: linear-gradient(
+			90deg,
+			rgba(91, 75, 128, 1) 6%,
+			rgba(203, 30, 49, 1) 29%,
+			rgba(231, 146, 49, 1) 53%,
+			rgba(236, 17, 26, 1) 75%,
+			rgba(115, 91, 133, 1) 94%
+		);
+		transform-style: preserve-3d;
+		transform: rotateX(45deg);
+		mix-blend-mode: difference;
+		z-index: 0;
+	}
+
+  
+}
+
+#title {
+    margin-bottom: 50px;
 }
 
 a {
